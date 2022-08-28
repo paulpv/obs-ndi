@@ -14,3 +14,19 @@ Network A/V in OBS Studio with NewTek's NDI (5.0) technology.
 
 ## Downloads
 Binaries for Windows, macOS and Linux are available in the [Releases](https://github.com/Palakis/obs-ndi/releases) section.
+
+## Local build
+
+Windows:
+In a **PowerShell 7** terminal, `cd` to the folder you want the code in:
+```
+PS …> git clone --recursive https://github.com/obsproject/obs-studio.git
+PS …> pushd obs-studio
+PS …\obs-studio> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+PS …\obs-studio> git config --global --add safe.directory absolute/path/to/your/repo/obs-studio
+PS …\obs-studio> .\CI\build-windows.ps1
+PS …\obs-studio> popd
+PS …> git clone https://github.com/Palakis/obs-ndi.git
+PS …> pushd obs-ndi
+PS …\obs-ndi> .\.github\scripts\Build-Windows.ps1
+```
